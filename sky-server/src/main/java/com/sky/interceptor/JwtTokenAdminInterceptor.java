@@ -57,4 +57,10 @@ public class JwtTokenAdminInterceptor implements HandlerInterceptor {
             return false;
         }
     }
+    @Override
+    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
+        // ！！关键一步：必须清理，防止线程复用导致的数据污染
+        // 这会在请求处理完毕（无论成功还是异常）后执行
+        BaseContext.removeCurrentId();
+    }
 }
