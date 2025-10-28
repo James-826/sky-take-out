@@ -11,7 +11,6 @@
             <if test="dishId !=null">and dish_id=#{dishId}</if>
             <if test="setmealId !=null">and setmea_id=#{setmealId}</if>
             <if test="dishFlavor !=null">and dish_flavor=#{dishFlavor}</if>
-
         </where>
 
     </select>
